@@ -57,6 +57,7 @@ pipeline{
                 )
 			}
 		}
+	    /*
 	    stage('Build Image')
     		{		
             		steps
@@ -70,7 +71,7 @@ pipeline{
 			{
                 	bat "docker run --name myfirstcontainer -d -p 9050:8080 myfirstimage:${BUILD_NUMBER}"
         		}
-		}
+		}*/
     }
     post{
         success{
