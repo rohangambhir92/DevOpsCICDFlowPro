@@ -75,6 +75,7 @@ pipeline{
 			    docker.withRegistry('https://186319575019.dkr.ecr.us-east-2.amazonaws.com/rohan-aws-pro', 'ecr:us-east-2:myaws_accessid') {
                         docker.image('rohan-aws-pro').push(${BUILD_NUMBER})
 			    }
+			    }
 		    }
 	    }
 	    stage("Docker Deployment")
