@@ -64,7 +64,7 @@ pipeline{
     		{		
             		steps
 				{
-                		bat "docker build -t rohan-aws-pro:${BUILD_NUMBER} ."
+                		bat "docker build -t rohan-aws-pro:latest-pro ."
             			}
 		}
 	    stage('Push Image')
@@ -73,11 +73,12 @@ pipeline{
 			    script
 			    {
 			    docker.withRegistry('https://186319575019.dkr.ecr.us-east-2.amazonaws.com/rohan-aws-pro', 'ecr:us-east-2:myaws_accessid') {
-                        docker.image('rohan-aws-pro').push(${BUILD_NUMBER})
+                        docker.image('rohan-aws-pro').push('latest-pro')
 			    }
 			    }
 		    }
 	    }
+	    /*
 	    stage("Docker Deployment")
         	{
 			steps
@@ -85,6 +86,7 @@ pipeline{
                 	bat "docker run --name myfirstcontainer -d -p 9050:8080 myfirstimage:${BUILD_NUMBER}"
         		}
 		}
+		*/
     }
     post{
         success{
