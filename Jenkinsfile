@@ -5,14 +5,14 @@ pipeline{
     }
     
     stages{
-    stage ('checkout')
+    stage ('Checkout Code')
 		{
 			steps
 			{
 				checkout scm
 			}
 		}
-		stage ('Build')
+		stage ('Build Code')
 		{
 			steps
 			{
@@ -60,14 +60,14 @@ pipeline{
 			}
 		}
 	    
-	    stage('Build Image')
+	    stage('Build Docker Image')
     		{		
             		steps
 				{
                 		bat "docker build -t ecr-rohan-pro:latest-sample-app-image-pro ."
             			}
 		}
-	    stage('Push Image')
+	    stage('Push Docker Image to ECR')
 	    {
 		    steps{
 			    script
@@ -90,7 +90,7 @@ pipeline{
     }
     post{
         success{
-            bat "echo success"
+            bat "echo Successfully completed CI Flow and uploaded image to ECR. Please spin up containers using ECS now"
         }
     }
     
