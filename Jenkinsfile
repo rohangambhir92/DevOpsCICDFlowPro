@@ -64,7 +64,7 @@ pipeline{
     		{		
             		steps
 				{
-                		bat "docker build -t ecr-rohan-pro:latest-sample-app-image-pro ."
+                		bat "docker build -t ecr-rohan-pro:lat-si-pro ."
             			}
 		}
 	    stage('Push Docker Image to ECR')
@@ -73,7 +73,7 @@ pipeline{
 			    script
 			    {
 			    docker.withRegistry('https://186319575019.dkr.ecr.us-east-2.amazonaws.com/ecr-rohan-pro', 'ecr:us-east-2:myaws_accessid') {
-                        docker.image('ecr-rohan-pro').push('latest-sample-app-image-pro')
+                        docker.image('ecr-rohan-pro').push('lat-si-pro')
 			    }
 			    }
 		    }
