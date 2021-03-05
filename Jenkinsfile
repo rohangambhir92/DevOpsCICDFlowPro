@@ -72,7 +72,7 @@ pipeline{
 		    steps{
 			    script
 			    {
-			   docker.withRegistry('https://186319575019.dkr.ecr.us-east-2.amazonaws.com/rohan-aws-pro', 'ecr:us-east-2:myaws_accessid') {
+			   docker.withRegistry('https://186319575019.dkr.ecr.us-east-2.amazonaws.com/rohan-aws-pro:latest-pro', 'ecr:us-east-2:myaws_accessid') {
                         docker.image('rohan-aws-pro').push('latest-pro')
 			    }
 			    }
