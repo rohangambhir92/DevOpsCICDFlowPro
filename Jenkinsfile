@@ -46,8 +46,8 @@ pipeline{
 				rtMavenDeployer (
                     id: 'deployer',
                     serverId: 'local@artifactory',
-                    releaseRepo: 'aws-pro-repo',
-                    snapshotRepo: 'aws-pro-repo'
+                    releaseRepo: 'ci-cd-pro-rohan',
+                    snapshotRepo: 'ci-cd-pro-rohan'
                 )
                 rtMavenRun (
                     pom: 'pom.xml',
@@ -64,7 +64,7 @@ pipeline{
     		{		
             		steps
 				{
-                		bat "docker build -t rohan-aws-pro:latest-pro ."
+                		bat "docker build -t ecr-rohan-pro:latest-sample-app-image-pro ."
             			}
 		}
 	    stage('Push Image')
@@ -72,8 +72,8 @@ pipeline{
 		    steps{
 			    script
 			    {
-			    docker.withRegistry('https://186319575019.dkr.ecr.us-east-2.amazonaws.com/rohan-aws-pro', 'ecr:us-east-2:myaws_accessid') {
-                        docker.image('rohan-aws-pro').push('latest-pro')
+			    docker.withRegistry('https://186319575019.dkr.ecr.us-east-2.amazonaws.com/ecr-rohan-pro', 'ecr:us-east-2:myaws_accessid') {
+                        docker.image('ecr-rohan-pro').push('latest-sample-app-image-pro')
 			    }
 			    }
 		    }
