@@ -64,7 +64,7 @@ pipeline{
     		{		
             		steps
 				{
-                		bat "docker build -t ecr-rohan-pro:latest-si ."
+                		bat "docker build -t rohan-aws-pro:latest-pro ."
             			}
 		}
 	    stage('Push Docker Image to ECR')
@@ -72,8 +72,8 @@ pipeline{
 		    steps{
 			    script
 			    {
-			    docker.withRegistry('https://186319575019.dkr.ecr.us-east-2.amazonaws.com/ecr-rohan-pro', 'ecr:us-east-2:myaws_accessid') {
-                        docker.image('ecr-rohan-pro').push('latest-si')
+			   docker.withRegistry('https://186319575019.dkr.ecr.us-east-2.amazonaws.com/rohan-aws-pro', 'ecr:us-east-2:myaws_accessid') {
+                        docker.image('rohan-aws-pro').push('latest-pro')
 			    }
 			    }
 		    }
