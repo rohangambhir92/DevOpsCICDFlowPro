@@ -27,7 +27,7 @@ pipeline{
 			}
 		}
 	  
-    /*  
+    
 		stage ('Sonar Analysis')
 		{
 			steps
@@ -38,7 +38,7 @@ pipeline{
 				}
 			}
 		}
-    */
+    
 	    stage ('Upload to Artifactory')
 		{
 			steps
@@ -78,15 +78,7 @@ pipeline{
 			    }
 		    }
 	    }
-	    /*
-	    stage("Docker Deployment")
-        	{
-			steps
-			{
-                	bat "docker run --name myfirstcontainer -d -p 9050:8080 myfirstimage:${BUILD_NUMBER}"
-        		}
-		}
-		*/
+	 
     }
     post{
         success{
